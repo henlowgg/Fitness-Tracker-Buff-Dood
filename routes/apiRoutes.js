@@ -35,6 +35,7 @@ router.post("/api/workouts", (req, res) => {
 });
 
 // PUT route for updating a new exercise
+// will circle back with Leif about this findID structure, but for now this seems fine
 router.put("/api/workouts/:id", (req, res) => {
     db.Workout.findByIdAndUpdate(req.params.id, req.body)
         .then(dbWorkout => {
