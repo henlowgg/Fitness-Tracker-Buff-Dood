@@ -11,8 +11,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static('public'));
-
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/populate', { useNewUrlParser: true });
+// change back to populate if necessary
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/workout', { useNewUrlParser: true });
 
 app.use(require('./routes/apiRoutes.js'));
 app.use(require('./routes/htmlRoutes.js'));

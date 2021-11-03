@@ -7,7 +7,7 @@ const path = require("path");
 
 // may need to change this to ../public
 router.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "../public/home.html"));
+  res.sendFile(path.join(__dirname, "../public"));
 });
 
 // GET exercise page

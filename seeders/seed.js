@@ -125,6 +125,26 @@ const workoutSeed = [
   },
 ];
 
+// possible fix for aggregate to add up totalDuration
+db.Workout.aggregate([
+  {
+    $group: {
+      _id: {
+        $dateToString: {
+          format: '%Y-%m-%d',
+          date: '$day',
+        },
+      },
+      totalDuration: { $sum: '$duration' },
+    },
+  },
+  {
+    $sort: {
+      _id: 1,
+    },
+  },
+]);
+
 db.Workout.deleteMany({})
   .then(() => db.Workout.collection.insertMany(workoutSeed))
   .then((data) => {
